@@ -1,0 +1,15 @@
+郑重声明：该仓库中代码非个人独创，部分思路可能来自微信公众号或CSDN，仅共学习参考，禁止商用
+It is solemnly stated that the code in the warehouse is not personally original, and some ideas may come from WeChat public account or CSDN. It is only for learning and reference, and commercial use is prohibited.
+
+公众号包括但不限于：
+The WeChat public account includes but is not limited to :
+
+清同趣科研
+生态R学社
+科研后花园
+R语言分析作图
+小田的生信随笔
+小白鱼的生统笔记
+土壤微生物组
+xy要加油鸭
+不懂绘图
