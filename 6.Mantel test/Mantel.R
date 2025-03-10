@@ -19,10 +19,8 @@ wspe_data <- read_excel("spec.xlsx", sheet = "Sheet1")
 
 # 进行Mantel相关性分析
 mantel <- mantel_test(wspe_data, wenv_data,
-                      spec_select = list(M1 = 1:1,
-                                         M2 = 2:2,
-                                         M3 = 3:3,
-                                         M4 = 4:4)) %>%
+                      spec_select = list(M1 = 1:2,
+                                         M2 = 3:4)) %>%
   mutate(rd = cut(r, breaks = c(-Inf, 0.2, 0.4, Inf),
                   labels = c("< 0.2", "0.2 - 0.4", ">= 0.4")),
          pd = cut(p, breaks = c(-Inf, 0.01, 0.05, Inf),
@@ -30,7 +28,7 @@ mantel <- mantel_test(wspe_data, wenv_data,
 
 #write.csv(mantel, file = "mantel_result_占比.csv", row.names = FALSE)
 
-# 绘制相关性矩阵的热图和Mantel相关性图
+# 绘制相关性矩阵的热图和Mantel相关性图  "#D1A846", high = "#2D6021"
 R <- qcorrplot(correlate(wenv_data), type = "lower", diag = FALSE) +
   geom_square() +
   geom_couple(aes(colour = pd, size = rd),
@@ -46,5 +44,6 @@ R <- qcorrplot(correlate(wenv_data), type = "lower", diag = FALSE) +
                                override.aes = list(size = 3),
                                order = 1),
          fill = guide_colorbar(title = "Pearson's r", order = 3))
+R
 ggsave("模块-mantel_占比.tiff", R, width = 8, height = 4.75, dpi = 300)
 ggsave("模块-mantel_占比.pdf", R,  dpi = 300)
